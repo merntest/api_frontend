@@ -9,9 +9,21 @@ const Addproduct = () => {
             .then(res=>{return res.json()})
             .then(response=>{
                 var x = sessionStorage.getItem("id")
+                console.log(sessionStorage.getItem("jwttoken"))
                 console.log(response.transaction.transaction_list)
+                var num = response.transaction.count
+
               
-                console.log(x)
+                console.log(num);
+
+                for (let i =0;i < num;i++) {
+                   
+                    var id = response.transaction.transaction_list[i].id;
+                    console.log(id,i);
+                    if (x==id) {
+                        console.log(response.transaction.transaction_list[i]);
+                    }
+                }
                 setdestiations(response.transaction)
             })
             .catch(error=>{console.log(error)})
@@ -21,7 +33,8 @@ const Addproduct = () => {
     },[]);
 return (
     <div>
-      hi 
+
+     
     </div>
 )
 }

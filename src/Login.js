@@ -64,7 +64,7 @@ sessionStorage.clear();
                 }else{
                      toast.success('Success');
                      sessionStorage.setItem('id',resp.user_data.id);
-                     sessionStorage.setItem('jwttoken',resp.jwtToken);
+                     sessionStorage.setItem('jwttoken',resp.user_data.token);
                    usenavigate('/add')
                 }
                 // if (Object.keys(resp).length === 0) {
